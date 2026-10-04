@@ -1,0 +1,153 @@
+@import "tailwindcss";
+
+/*
+ * Namer design tokens: warm paper, soft pastels, one confident accent per
+ * pool theme. Pastels carry decoration; text always uses ink for contrast.
+ */
+@theme {
+  --font-sans: var(--font-nunito), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-fraunces), ui-serif, Georgia, serif;
+
+  --color-paper: #fffaf5;
+  --color-cream: #fdf1e7;
+  --color-ink: #3b2f2f;
+  --color-ink-soft: #7a6a66;
+  --color-line: #f0e2d8;
+
+  --color-blush-50: #fff3f3;
+  --color-blush-100: #fde4e4;
+  --color-blush-200: #f9c9cb;
+  --color-blush-400: #ec8f97;
+  --color-blush-600: #c9566a;
+
+  --color-sky-50: #f1f7fd;
+  --color-sky-100: #ddebf9;
+  --color-sky-200: #bcd7f2;
+  --color-sky-400: #79aedf;
+  --color-sky-600: #3f7ab5;
+
+  --color-sage-50: #f2f7f2;
+  --color-sage-100: #e0ece0;
+  --color-sage-200: #c3dac4;
+  --color-sage-400: #8bb58e;
+  --color-sage-600: #4f8455;
+
+  --color-sun-50: #fff9ec;
+  --color-sun-100: #fdeecb;
+  --color-sun-200: #f9dc95;
+  --color-sun-400: #f0b94a;
+  --color-sun-600: #b67d12;
+
+  --radius-blob: 2rem;
+  --shadow-soft: 0 1px 2px rgb(59 47 47 / 0.04), 0 8px 24px -8px rgb(59 47 47 / 0.12);
+  --shadow-lift: 0 2px 4px rgb(59 47 47 / 0.05), 0 18px 40px -12px rgb(59 47 47 / 0.22);
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pop: pop 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.4);
+  --animate-fall: fall linear forwards;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(-2deg); }
+    50% { transform: translateY(-8px) rotate(2deg); }
+  }
+  @keyframes pop {
+    from { transform: scale(0.85); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+  @keyframes fall {
+    from { transform: translate3d(0, -10vh, 0) rotate(0deg); opacity: 1; }
+    to { transform: translate3d(var(--drift, 0), 110vh, 0) rotate(540deg); opacity: 0.9; }
+  }
+}
+
+/* Per-pool accent: set data-theme on a wrapper. */
+[data-theme] {
+  --accent-50: var(--color-blush-50);
+  --accent-100: var(--color-blush-100);
+  --accent-200: var(--color-blush-200);
+  --accent-400: var(--color-blush-400);
+  --accent-600: var(--color-blush-600);
+}
+[data-theme="sky"] {
+  --accent-50: var(--color-sky-50);
+  --accent-100: var(--color-sky-100);
+  --accent-200: var(--color-sky-200);
+  --accent-400: var(--color-sky-400);
+  --accent-600: var(--color-sky-600);
+}
+[data-theme="sage"] {
+  --accent-50: var(--color-sage-50);
+  --accent-100: var(--color-sage-100);
+  --accent-200: var(--color-sage-200);
+  --accent-400: var(--color-sage-400);
+  --accent-600: var(--color-sage-600);
+}
+[data-theme="sun"] {
+  --accent-50: var(--color-sun-50);
+  --accent-100: var(--color-sun-100);
+  --accent-200: var(--color-sun-200);
+  --accent-400: var(--color-sun-400);
+  --accent-600: var(--color-sun-600);
+}
+
+@theme inline {
+  --color-accent-50: var(--accent-50, var(--color-blush-50));
+  --color-accent-100: var(--accent-100, var(--color-blush-100));
+  --color-accent-200: var(--accent-200, var(--color-blush-200));
+  --color-accent-400: var(--accent-400, var(--color-blush-400));
+  --color-accent-600: var(--accent-600, var(--color-blush-600));
+}
+
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+/* Subtle paper grain via layered gradients (no image request). */
+.bg-dots {
+  background-image: radial-gradient(rgb(236 143 151 / 0.16) 1.2px, transparent 1.2px);
+  background-size: 22px 22px;
+}
+
+@utility card {
+  @apply rounded-[1.5rem] border border-line bg-white shadow-soft;
+}
+@utility btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 font-bold transition
+    active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50;
+}
+@utility btn-primary {
+  @apply btn bg-ink text-white shadow-soft hover:bg-ink/90;
+}
+@utility btn-accent {
+  @apply btn bg-accent-600 text-white shadow-soft hover:brightness-110;
+}
+@utility btn-soft {
+  @apply btn bg-accent-100 text-ink hover:bg-accent-200;
+}
+@utility btn-ghost {
+  @apply btn border border-line bg-white text-ink hover:bg-cream;
+}
+@utility input {
+  @apply w-full rounded-2xl border border-line bg-white px-4 py-3 text-base text-ink outline-none transition
+    placeholder:text-ink-soft/60 focus:border-accent-400 focus:ring-4 focus:ring-accent-100;
+}
+@utility label {
+  @apply mb-1.5 block text-sm font-bold text-ink;
+}
+@utility chip {
+  @apply inline-flex items-center gap-1 rounded-full bg-cream px-3 py-1 text-xs font-bold text-ink-soft;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
