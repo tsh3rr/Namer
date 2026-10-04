@@ -12,7 +12,7 @@ const SLIDES = [
   },
   {
     emoji: "📈",
-    title: "Die Prozente sind die Quoten",
+    title: "Die Prozente sind die Prognose",
     text: "62 % bei „Mädchen“ heißt: Die Gruppe hält das für ziemlich wahrscheinlich. Ein Anteil kostet dann 0,62 Punkte und zahlt 1 Punkt, wenn es stimmt. Mutige Tipps auf Außenseiter bringen mehr.",
   },
   {

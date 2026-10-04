@@ -23,7 +23,7 @@ export default async function InvitePage({ params, searchParams }: PageProps<"/p
   const inviteUrl = `${base}/p/${slug}?ref=${me.id}`;
   const hostUrl = `${base}/p/${slug}?key=${pool.adminKey}`;
   const invited = members.filter((m) => m.invitedBy === me.id).length;
-  const text = `👶 ${pool.parentNames ? `${pool.parentNames} bekommen ein Baby! ` : ""}Junge oder Mädchen? Welcher Name? Tipp mit bei der Babywette für ${pool.babyName}:`;
+  const text = `👶 ${pool.parentNames ? `${pool.parentNames} bekommen ein Baby! ` : ""}Junge oder Mädchen? Welcher Name? Tipp mit bei der Tipprunde für ${pool.babyName}:`;
 
   return (
     <main className="mx-auto max-w-xl px-4 py-10">
@@ -31,11 +31,11 @@ export default async function InvitePage({ params, searchParams }: PageProps<"/p
       <div className="text-center">
         <div className="text-5xl">{isNew ? "🎉" : "💌"}</div>
         <h1 className="mt-3 font-display text-4xl font-semibold text-balance">
-          {isNew ? "Eure Babywette ist startklar!" : "Lade deine Leute ein"}
+          {isNew ? "Eure Tipprunde ist startklar!" : "Lade deine Leute ein"}
         </h1>
         <p className="mt-3 text-ink-soft">
           {isNew
-            ? "Letzter Schritt: Schick den Link in die Familien- oder Freundesgruppe. Je mehr mitmachen, desto spannender werden die Quoten."
+            ? "Letzter Schritt: Schick den Link in die Familien- oder Freundesgruppe. Je mehr mitmachen, desto spannender werden die Prognosen."
             : `Für jede Person, die über deinen Link mitmacht, bekommst du ${pool.inviteBonus} Bonuspunkte.`}
         </p>
       </div>
@@ -57,8 +57,8 @@ export default async function InvitePage({ params, searchParams }: PageProps<"/p
           <h2 className="font-display text-xl font-semibold">🔑 Gastgeber-Link</h2>
           <p className="mt-1 text-sm text-ink-soft">
             {me.role === "parent"
-              ? "Damit kann auch dein Partner oder deine Partnerin die Babywette verwalten und nach der Geburt auflösen. Nicht in die Gruppe posten!"
-              : "Gib diesen Link an die Eltern weiter. Damit können sie die Babywette verwalten und nach der Geburt auflösen. Nicht in die Gruppe posten!"}
+              ? "Damit kann auch dein Partner oder deine Partnerin die Tipprunde verwalten und nach der Geburt auflösen. Nicht in die Gruppe posten!"
+              : "Gib diesen Link an die Eltern weiter. Damit können sie die Tipprunde verwalten und nach der Geburt auflösen. Nicht in die Gruppe posten!"}
           </p>
           <div className="mt-4">
             <CopyField label="Nur für Gastgeber" value={hostUrl} />
@@ -68,7 +68,7 @@ export default async function InvitePage({ params, searchParams }: PageProps<"/p
 
       <div className="mt-8 text-center">
         <Link href={`/p/${slug}`} className="btn-primary">
-          {isNew ? "Zur Babywette" : "Zurück zu den Wetten"}
+          {isNew ? "Zur Tipprunde" : "Zurück zu den Fragen"}
         </Link>
       </div>
     </main>

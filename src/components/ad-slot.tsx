@@ -57,8 +57,8 @@ export function AdSlot({ slug }: { slug: string }) {
         Babyparty geplant? 🎈
       </p>
       <p className="mt-1 text-sm text-ink-soft">
-        Mit dem Live-Modus laufen die Quoten groß auf dem Fernseher mit. Dazu
-        eigene Wetten und keine Werbung.
+        Mit dem Live-Modus laufen die Prognosen groß auf dem Fernseher mit. Dazu
+        eigene Fragen und keine Werbung.
       </p>
     </Link>
   );

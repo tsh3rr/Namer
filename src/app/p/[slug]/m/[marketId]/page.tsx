@@ -45,12 +45,12 @@ export default async function MarketPage({
 
   const canTrade = !!me && me.role !== "parent" && m.status === "open";
   const reason = !me
-    ? "Tritt der Babywette bei, um mitzutippen."
+    ? "Tritt der Tipprunde bei, um mitzutippen."
     : me.role === "parent"
       ? "Eltern wissen zu viel 😉 Ihr schaut nur zu."
       : m.status === "resolved"
-        ? "Diese Wette ist aufgelöst."
-        : "Die Gastgeber haben diese Wette geschlossen.";
+        ? "Diese Frage ist aufgelöst."
+        : "Die Gastgeber haben diese Frage geschlossen.";
 
   const top = [...m.outcomes].sort((a, b) => b.price - a.price)[0];
   const shareUrl = `${siteUrl()}/p/${slug}/m/${m.id}${me ? `?ref=${me.id}` : ""}`;
@@ -58,7 +58,7 @@ export default async function MarketPage({
   return (
     <main className="mx-auto max-w-5xl px-4 py-8">
       <Link href={`/p/${slug}`} className="text-sm font-bold text-ink-soft hover:text-ink">
-        ← Alle Wetten
+        ← Alle Fragen
       </Link>
       <div className="mt-4 flex items-center gap-4">
         <span className="flex size-14 items-center justify-center rounded-3xl bg-accent-100 text-3xl">
@@ -111,11 +111,11 @@ export default async function MarketPage({
           </section>
 
           <section className="card p-5">
-            <h2 className="font-display text-lg font-semibold">Wie funktionieren die Quoten?</h2>
+            <h2 className="font-display text-lg font-semibold">Wie funktioniert die Prognose?</h2>
             <p className="mt-2 text-sm text-ink-soft">
               Jeder Anteil zahlt 1 Punkt, wenn seine Antwort stimmt, sonst 0. Der Preis eines
               Anteils entspricht der Wahrscheinlichkeit, die die Gruppe gerade sieht. Jeder Tipp
-              verschiebt die Quote, und du kannst deine Anteile jederzeit vor der Auflösung
+              verschiebt die Prognose, und du kannst deine Anteile jederzeit vor der Auflösung
               wieder verkaufen.
             </p>
           </section>

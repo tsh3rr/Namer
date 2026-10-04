@@ -16,16 +16,16 @@ const FAQ = [
     a: "Sie zeigen, für wie wahrscheinlich die Gruppe eine Antwort hält. Ein Anteil kostet so viele Punkte wie sein Prozentwert (62 % = 0,62 Punkte) und zahlt 1 Punkt, wenn die Antwort stimmt.",
   },
   {
-    q: "Warum bewegen sich die Quoten?",
-    a: "Jeder Tipp macht eine Antwort teurer und die anderen günstiger, wie an einer Börse. Wer früh oder gegen den Trend richtig liegt, gewinnt am meisten.",
+    q: "Warum bewegt sich die Prognose?",
+    a: "Jeder Tipp macht eine Antwort teurer und die anderen günstiger. So entsteht eine Live-Prognose der ganzen Gruppe. Wer früh oder gegen den Trend richtig liegt, gewinnt am meisten.",
   },
   {
     q: "Kann ich einen Tipp zurücknehmen?",
-    a: "Ja. Bis die Wette aufgelöst wird, kannst du deine Anteile zum aktuellen Kurs wieder verkaufen.",
+    a: "Ja. Bis die Frage aufgelöst wird, kannst du deine Anteile zum aktuellen Stand wieder abgeben.",
   },
   {
     q: "Warum dürfen die Eltern nicht mittippen?",
-    a: "Weil sie vielleicht schon mehr wissen 😉 Eltern sind Gastgeber: Sie laden ein und lösen die Wetten nach der Geburt auf.",
+    a: "Weil sie vielleicht schon mehr wissen 😉 Eltern sind Gastgeber: Sie laden ein und lösen die Fragen nach der Geburt auf.",
   },
   {
     q: "Brauche ich ein Konto?",
@@ -33,7 +33,7 @@ const FAQ = [
   },
   {
     q: `Was kostet ${BRAND.name}?`,
-    a: `Nichts. Mit ${BRAND.plusName} bekommt ihr einmalig eigene Wetten, den Live-Modus für die Party, Farbwelten und keine Werbung.`,
+    a: `Nichts. Mit ${BRAND.plusName} bekommt ihr einmalig eigene Fragen, den Live-Modus für die Party, Farbwelten und keine Werbung.`,
   },
 ];
 
@@ -57,7 +57,7 @@ export default function HowItWorks() {
           ))}
         </div>
         <div className="mt-10 text-center">
-          <Link href="/neu" className="btn-primary">Babywette anlegen</Link>
+          <Link href="/neu" className="btn-primary">Tipprunde anlegen</Link>
         </div>
       </main>
       <Footer />

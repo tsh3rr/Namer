@@ -10,10 +10,10 @@ import { getDeviceId } from "@/lib/session";
 export const metadata: Metadata = { title: BRAND.plusName };
 
 const FEATURES = [
-  { e: "📺", t: "Live-Modus für die Party", d: "Quoten, Rangliste und Enthüllung groß auf Fernseher oder Beamer. Perfekt für Babyparty und Gender Reveal." },
-  { e: "✨", t: "Eigene Wetten", d: "„Wer weint mehr, Mama oder Papa?“ oder „Kommt das Baby nachts?“: Fragt, was ihr wollt." },
-  { e: "🎨", t: "Farbwelten", d: "Rosé, Himmelblau, Salbei oder Sonnengelb für eure Babywette." },
-  { e: "🕊️", t: "Keine Werbung", d: "Für alle Gäste eurer Babywette, für immer." },
+  { e: "📺", t: "Live-Modus für die Party", d: "Prognosen, Rangliste und Enthüllung groß auf Fernseher oder Beamer. Perfekt für Babyparty und Gender Reveal." },
+  { e: "✨", t: "Eigene Fragen", d: "„Wer weint mehr, Mama oder Papa?“ oder „Kommt das Baby nachts?“: Fragt, was ihr wollt." },
+  { e: "🎨", t: "Farbwelten", d: "Rosé, Himmelblau, Salbei oder Sonnengelb für eure Tipprunde." },
+  { e: "🕊️", t: "Keine Werbung", d: "Für alle Gäste eurer Tipprunde, für immer." },
 ];
 
 export default async function PlusPage({ params, searchParams }: PageProps<"/p/[slug]/plus">) {

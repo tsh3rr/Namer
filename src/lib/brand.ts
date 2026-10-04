@@ -6,7 +6,7 @@ export const BRAND = {
   name: "Namer",
   wordmark: "namer",
   plusName: "Namer Plus",
-  tagline: "Die Babywette für Freunde & Familie",
+  tagline: "Das Baby-Tippspiel für Freunde & Familie",
 } as const;
 
 export const LOCALE = "de-DE";

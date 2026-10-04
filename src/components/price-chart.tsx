@@ -26,7 +26,7 @@ export function PriceChart({
 
   return (
     <figure>
-      <svg viewBox={`0 0 ${W} ${H}`} className="h-44 w-full" role="img" aria-label="Verlauf der Quoten">
+      <svg viewBox={`0 0 ${W} ${H}`} className="h-44 w-full" role="img" aria-label="Verlauf der Prognose">
         {[0.25, 0.5, 0.75].map((g) => (
           <line key={g} x1={pad} x2={W - pad} y1={y(g)} y2={y(g)} stroke="var(--color-line)" strokeDasharray="4 6" />
         ))}

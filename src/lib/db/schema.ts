@@ -13,7 +13,7 @@ const createdAt = () =>
     .notNull()
     .default(sql`(unixepoch() * 1000)`);
 
-/** A "Babywette": one baby, many markets. */
+/** A "Tipprunde": one baby, many markets. */
 export const pools = sqliteTable("pools", {
   id: text("id").primaryKey(),
   slug: text("slug").notNull().unique(),

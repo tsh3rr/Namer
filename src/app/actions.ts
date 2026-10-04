@@ -94,7 +94,7 @@ const createSchema = z.object({
     .or(z.literal("")),
   markets: z
     .array(z.enum(["gender", "name", "date", "weight", "length"]))
-    .min(1, "Wähle mindestens eine Wette aus."),
+    .min(1, "Wähle mindestens eine Frage aus."),
   nameIdeas: z.string().max(400).optional(),
   stakes: z.string().trim().max(140).optional(),
 });
@@ -175,7 +175,7 @@ export async function joinPool(
   const parsedName = displayName.safeParse(form.get("displayName"));
   if (!parsedName.success) return { error: parsedName.error.issues[0].message };
   const pool = await getPool(slug);
-  if (!pool) return { error: "Diese Babywette gibt es nicht (mehr)." };
+  if (!pool) return { error: "Diese Tipprunde gibt es nicht (mehr)." };
 
   const deviceId = await ensureDeviceId();
   const existing = await getMember(pool.id, deviceId);
@@ -238,15 +238,15 @@ async function loadTradeContext(tx: Tx, marketId: string, deviceId: string) {
   const market = await tx.query.markets.findFirst({
     where: eq(markets.id, marketId),
   });
-  if (!market) throw new UserError("Diese Wette gibt es nicht.");
+  if (!market) throw new UserError("Diese Frage gibt es nicht.");
   const me = await tx.query.members.findFirst({
     where: and(eq(members.poolId, market.poolId), eq(members.deviceId, deviceId)),
   });
-  if (!me) throw new UserError("Tritt der Babywette zuerst bei.");
+  if (!me) throw new UserError("Tritt der Tipprunde zuerst bei.");
   if (me.role === "parent")
     throw new UserError("Eltern wissen zu viel 😉 Ihr dürft nur zuschauen.");
   if (market.status !== "open")
-    throw new UserError("Diese Wette ist bereits geschlossen.");
+    throw new UserError("Diese Frage ist bereits geschlossen.");
   const os = (
     await tx.query.outcomes.findMany({ where: eq(outcomes.marketId, marketId) })
   ).sort((a, b) => a.sortOrder - b.sortOrder || +a.createdAt - +b.createdAt);
@@ -278,7 +278,7 @@ export async function placeTrade(
   if (!parsed.success) return { error: parsed.error.issues[0].message };
   const { marketId, outcomeId, side, amount } = parsed.data;
   const deviceId = await getDeviceId();
-  if (!deviceId) return { error: "Tritt der Babywette zuerst bei." };
+  if (!deviceId) return { error: "Tritt der Tipprunde zuerst bei." };
 
   try {
     const msg = await db.transaction(async (tx) => {
@@ -347,7 +347,7 @@ export async function suggestOutcome(
   const label = cleanName(String(form.get("label") ?? ""));
   if (!labelKey(label)) return { error: "Welcher Name?" };
   const deviceId = await getDeviceId();
-  if (!deviceId) return { error: "Tritt der Babywette zuerst bei." };
+  if (!deviceId) return { error: "Tritt der Tipprunde zuerst bei." };
 
   try {
     await db.transaction(async (tx) => {
@@ -357,14 +357,14 @@ export async function suggestOutcome(
       if (!market?.allowNewOutcomes)
         throw new UserError("Hier können keine Optionen ergänzt werden.");
       if (market.status !== "open")
-        throw new UserError("Diese Wette ist bereits geschlossen.");
+        throw new UserError("Diese Frage ist bereits geschlossen.");
       const me = await tx.query.members.findFirst({
         where: and(
           eq(members.poolId, market.poolId),
           eq(members.deviceId, deviceId),
         ),
       });
-      if (!me) throw new UserError("Tritt der Babywette zuerst bei.");
+      if (!me) throw new UserError("Tritt der Tipprunde zuerst bei.");
       const dup = await tx.query.outcomes.findFirst({
         where: and(
           eq(outcomes.marketId, marketId),
@@ -397,7 +397,7 @@ export async function suggestOutcome(
 
 async function requireAdmin(slug: string, key?: string | null) {
   const pool = await getPool(slug);
-  if (!pool) throw new UserError("Diese Babywette gibt es nicht.");
+  if (!pool) throw new UserError("Diese Tipprunde gibt es nicht.");
   const me = await getMember(pool.id, await getDeviceId());
   if (!isAdmin(pool, me, key)) throw new UserError("Nur für Gastgeber.");
   return { pool, me };
@@ -412,7 +412,7 @@ async function adminMarket(form: FormData) {
       eq(markets.poolId, pool.id),
     ),
   });
-  if (!market) throw new UserError("Diese Wette gibt es nicht.");
+  if (!market) throw new UserError("Diese Frage gibt es nicht.");
   return { pool, market };
 }
 
@@ -440,7 +440,7 @@ export async function setMarketOpen(
       .update(markets)
       .set({ status: open ? "open" : "closed" })
       .where(eq(markets.id, market.id));
-    return open ? "Wette wieder geöffnet." : "Wette geschlossen.";
+    return open ? "Frage wieder geöffnet." : "Frage geschlossen.";
   });
 }
 
@@ -451,7 +451,7 @@ export async function resolveMarket(
   return guard(async () => {
     const { pool, market } = await adminMarket(form);
     if (market.status === "resolved")
-      throw new UserError("Diese Wette ist schon aufgelöst.");
+      throw new UserError("Diese Frage ist schon aufgelöst.");
     const outcomeId = String(form.get("outcomeId") ?? "");
     const revealedName = cleanName(String(form.get("revealedName") ?? ""));
 
@@ -512,7 +512,7 @@ export async function addMarket(
 
     if (kind === "custom") {
       if (!pool.premium)
-        throw new UserError(`Eigene Wetten gibt es mit ${BRAND.plusName}.`);
+        throw new UserError(`Eigene Fragen gibt es mit ${BRAND.plusName}.`);
       const parsed = customSchema.safeParse({
         question: form.get("question"),
         options: String(form.get("options") ?? "")
@@ -533,15 +533,15 @@ export async function addMarket(
           order,
         ),
       );
-      return "Neue Wette ist live!";
+      return "Neue Frage ist live!";
     }
 
     const t = templateFor(kind as MarketKind);
-    if (!t || kind === "custom") throw new UserError("Unbekannte Wette.");
+    if (!t || kind === "custom") throw new UserError("Unbekannte Frage.");
     const exists = await db.query.markets.findFirst({
       where: and(eq(markets.poolId, pool.id), eq(markets.kind, t.kind)),
     });
-    if (exists) throw new UserError("Diese Wette gibt es schon.");
+    if (exists) throw new UserError("Diese Frage gibt es schon.");
     await db.transaction((tx) =>
       insertMarket(
         tx,

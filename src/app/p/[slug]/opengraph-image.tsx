@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import { BRAND } from "@/lib/brand";
 import { getPoolView } from "@/lib/pools";
 
-export const alt = "Babywette";
+export const alt = "Tipprunde";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 export const dynamic = "force-dynamic";
@@ -37,7 +37,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
         }}
       >
         <div style={{ display: "flex", fontSize: 30, fontWeight: 700, color: "#c9566a" }}>
-          {BRAND.name} · Babywette
+          {BRAND.name} · Tipprunde
         </div>
         <div style={{ display: "flex", flexDirection: "column" }}>
           {pool?.parentNames && (
@@ -48,7 +48,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
               ? `Es ist ein ${genderWinner.label}!`
               : pool
                 ? `Junge oder Mädchen?`
-                : "Die Babywette"}
+                : "Die Tipprunde"}
           </div>
           {pool && <div style={{ display: "flex", fontSize: 40, marginTop: 8 }}>{pool.revealedName ?? pool.babyName}</div>}
         </div>

@@ -168,7 +168,7 @@ export function TradePanel({
                 </div>
               )}
               <div className="flex justify-between">
-                <dt className="text-ink-soft">Quote danach</dt>
+                <dt className="text-ink-soft">Prognose danach</dt>
                 <dd className="font-bold tabular-nums">{pct(preview.newPrice)}</dd>
               </div>
             </dl>
@@ -208,7 +208,7 @@ export function SuggestName({ marketId }: { marketId: string }) {
     <form action={action} className="card p-5">
       <h2 className="font-display text-lg font-semibold">Fehlt ein Name?</h2>
       <p className="mt-1 text-sm text-ink-soft">
-        Schlag ihn vor. Neue Namen starten mit einer niedrigen Quote, frühe Tipps lohnen sich also.
+        Schlag ihn vor. Neue Namen starten mit einer niedrigen Prognose, frühe Tipps lohnen sich also.
       </p>
       <input type="hidden" name="marketId" value={marketId} />
       <div className="mt-3 flex gap-2">

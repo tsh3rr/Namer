@@ -20,7 +20,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const pool = await getPool(slug);
   if (!pool) return {};
-  const title = `Babywette: ${pool.babyName}`;
+  const title = `Tipprunde: ${pool.babyName}`;
   const description = pool.parentNames
     ? `${pool.parentNames} bekommen ein Baby! Junge oder Mädchen? Welcher Name? Tipp mit.`
     : "Junge oder Mädchen? Welcher Name? Tipp mit – nur mit Spielpunkten.";
@@ -73,7 +73,7 @@ export default async function PoolPage({
               </p>
             )}
             <h1 className="mt-2 font-display text-4xl font-semibold text-balance md:text-5xl">
-              Die Babywette für {pool.babyName}
+              Die Tipprunde für {pool.babyName}
             </h1>
           </>
         )}
@@ -89,7 +89,7 @@ export default async function PoolPage({
             </span>
           )}
           <span className="chip bg-white">👥 {members.length} dabei</span>
-          {pool.stakes && <span className="chip bg-white">🎯 Einsatz: {pool.stakes}</span>}
+          {pool.stakes && <span className="chip bg-white">🎯 Spaßpreis: {pool.stakes}</span>}
         </div>
       </section>
 
@@ -136,7 +136,7 @@ export default async function PoolPage({
               <input type="hidden" name="key" value={key} />
               <p className="flex-1">
                 <span className="font-extrabold">🔑 Gastgeber-Link erkannt.</span>{" "}
-                Möchtest du diese Babywette mitverwalten?
+                Möchtest du diese Tipprunde mitverwalten?
               </p>
               <label className="flex items-center gap-2">
                 <input type="checkbox" name="asParent" value="1" /> Ich bin Mama oder Papa
@@ -150,7 +150,7 @@ export default async function PoolPage({
               <p className="font-extrabold">Ihr seid die Gastgeber 💛</p>
               <p className="mt-1 text-ink-soft">
                 Eltern tippen nicht mit, schließlich wisst ihr vielleicht mehr. Teilt
-                den Link und löst die Wetten nach der Geburt unter „Verwalten“ auf.
+                den Link und löst die Fragen nach der Geburt unter „Verwalten“ auf.
               </p>
             </section>
           )}
@@ -161,7 +161,7 @@ export default async function PoolPage({
             ))}
             {markets.length === 0 && (
               <p className="card p-6 text-ink-soft md:col-span-2">
-                Noch keine Wetten. Gastgeber können unter „Verwalten“ welche anlegen.
+                Noch keine Fragen. Gastgeber können unter „Verwalten“ welche anlegen.
               </p>
             )}
           </section>
@@ -170,12 +170,12 @@ export default async function PoolPage({
             <section className="card p-5">
               <h2 className="font-display text-xl font-semibold">Mehr Mitspieler, mehr Spaß</h2>
               <p className="mt-1 text-sm text-ink-soft">
-                Teile die Babywette mit der Familie. Für jede neue Person gibt es{" "}
+                Teile die Tipprunde mit der Familie. Für jede neue Person gibt es{" "}
                 {pool.inviteBonus} Bonuspunkte für dich.
               </p>
               <ShareButtons
                 url={inviteUrl}
-                text={`👶 Junge oder Mädchen? Tipp mit bei der Babywette für ${pool.babyName}!`}
+                text={`👶 Junge oder Mädchen? Tipp mit bei der Tipprunde für ${pool.babyName}!`}
               />
             </section>
           )}

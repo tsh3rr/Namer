@@ -36,7 +36,7 @@ export async function startPlusCheckout(form: FormData) {
           product_data: {
             name: `${BRAND.plusName} für ${pool.babyName}`,
             description:
-              "Eigene Wetten, Live-Modus für die Party, Farbwelten, keine Werbung.",
+              "Eigene Fragen, Live-Modus für die Party, Farbwelten, keine Werbung.",
           },
         },
       },

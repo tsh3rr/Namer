@@ -11,7 +11,7 @@ const STAKE_IDEAS = [
   "Gewinner schlägt den Zweitnamen vor",
 ];
 
-const STEP_TITLES = ["Los geht’s", "Das Baby", "Die Wetten", "Der Einsatz"];
+const STEP_TITLES = ["Los geht’s", "Das Baby", "Die Fragen", "Der Spaßpreis"];
 
 export function CreateWizard() {
   const [state, action, pending] = useActionState(createPool, undefined);
@@ -40,7 +40,7 @@ export function CreateWizard() {
     }
     if (step === 0 && !role) return setStepError("Wähle eine Option.");
     if (step === 2 && selected.length === 0)
-      return setStepError("Wähle mindestens eine Wette aus.");
+      return setStepError("Wähle mindestens eine Frage aus.");
     setStepError(null);
     setStep((s) => s + 1);
   }
@@ -83,7 +83,7 @@ export function CreateWizard() {
         {/* Step 0: who are you */}
         <section data-step="0" hidden={step !== 0} className="animate-pop">
           <h1 className="mt-2 font-display text-3xl font-semibold">
-            Wer legt die Babywette an?
+            Wer legt die Tipprunde an?
           </h1>
           <input type="hidden" name="role" value={role ?? ""} />
           <div className="mt-6 grid gap-3">
@@ -158,7 +158,7 @@ export function CreateWizard() {
                 required
               />
               <p className="mt-1.5 text-xs text-ink-soft">
-                So heißt eure Babywette, bis der echte Name feststeht.
+                So heißt eure Tipprunde, bis der echte Name feststeht.
               </p>
             </div>
             <div>
@@ -188,7 +188,7 @@ export function CreateWizard() {
             Worauf soll getippt werden?
           </h1>
           <p className="mt-2 text-ink-soft">
-            Du kannst später jederzeit Wetten hinzufügen.
+            Du kannst später jederzeit Fragen hinzufügen.
           </p>
           <div className="mt-6 grid grid-cols-2 gap-3">
             {MARKET_TEMPLATES.map((t) => {
@@ -276,10 +276,10 @@ export function CreateWizard() {
         {/* Step 3: stakes + summary */}
         <section data-step="3" hidden={step !== 3} className="animate-pop">
           <h1 className="mt-2 font-display text-3xl font-semibold">
-            Ein kleiner Einsatz?
+            Ein kleiner Spaßpreis?
           </h1>
           <p className="mt-2 text-ink-soft">
-            Getippt wird nur mit Spielpunkten. Ein lustiger Einsatz macht es
+            Getippt wird nur mit Spielpunkten. Ein lustiger Spaßpreis macht es
             spannender, ist aber freiwillig.
           </p>
           <div className="mt-5 flex flex-wrap gap-2">
@@ -301,7 +301,7 @@ export function CreateWizard() {
             className="input mt-3"
             value={stakes}
             onChange={(e) => setStakes(e.target.value)}
-            placeholder="Oder eigener Einsatz …"
+            placeholder="Oder eigener Spaßpreis …"
             maxLength={140}
           />
           <div className="mt-6 rounded-3xl bg-sage-50 p-4 text-sm">
@@ -309,7 +309,7 @@ export function CreateWizard() {
             <ul className="mt-2 space-y-1 text-ink-soft">
               <li>• Jede Person startet mit 1.000 Spielpunkten.</li>
               <li>• Wer Freunde einlädt, bekommt 100 Bonuspunkte.</li>
-              <li>• Nach der Geburt löst ihr die Wetten auf und kürt die Siegerin oder den Sieger.</li>
+              <li>• Nach der Geburt löst ihr die Fragen auf und kürt die Siegerin oder den Sieger.</li>
             </ul>
           </div>
         </section>
@@ -336,7 +336,7 @@ export function CreateWizard() {
             </button>
           ) : (
             <button key="submit" type="submit" className="btn-primary" disabled={pending}>
-              {pending ? "Wird angelegt …" : "Babywette anlegen 🎉"}
+              {pending ? "Wird angelegt …" : "Tipprunde anlegen 🎉"}
             </button>
           )}
         </div>

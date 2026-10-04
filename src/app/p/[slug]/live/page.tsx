@@ -21,7 +21,7 @@ export default async function LivePage({ params }: PageProps<"/p/[slug]/live">) 
       <main className="mx-auto max-w-md px-4 py-20 text-center">
         <div className="text-5xl">📺</div>
         <h1 className="mt-4 font-display text-3xl font-semibold">Der Live-Modus gehört zu {BRAND.plusName}</h1>
-        <p className="mt-2 text-ink-soft">Zeigt Quoten und Rangliste groß auf dem Fernseher, ideal für die Babyparty.</p>
+        <p className="mt-2 text-ink-soft">Zeigt Prognosen und Rangliste groß auf dem Fernseher, ideal für die Babyparty.</p>
         <Link href={`/p/${slug}/plus`} className="btn-primary mt-6">Mehr erfahren</Link>
       </main>
     );

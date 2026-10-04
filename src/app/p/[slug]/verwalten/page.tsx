@@ -25,7 +25,7 @@ export default async function ManagePage({ params, searchParams }: PageProps<"/p
         <div className="text-5xl">🔒</div>
         <h1 className="mt-4 font-display text-3xl font-semibold">Nur für Gastgeber</h1>
         <p className="mt-2 text-ink-soft">Öffne den Gastgeber-Link, den du beim Anlegen bekommen hast.</p>
-        <Link href={`/p/${slug}`} className="btn-primary mt-6">Zur Babywette</Link>
+        <Link href={`/p/${slug}`} className="btn-primary mt-6">Zur Tipprunde</Link>
       </main>
     );
 
@@ -42,7 +42,7 @@ export default async function ManagePage({ params, searchParams }: PageProps<"/p
         >
           <p className="font-display text-xl font-semibold">✨ {BRAND.plusName} freischalten</p>
           <p className="mt-1 text-sm text-ink-soft">
-            Eigene Wetten, Live-Modus für die Babyparty, Farbwelten und keine Werbung für alle
+            Eigene Fragen, Live-Modus für die Babyparty, Farbwelten und keine Werbung für alle
             Gäste. Einmalig {PLUS_PRICE_LABEL}.
           </p>
         </Link>
@@ -57,10 +57,10 @@ export default async function ManagePage({ params, searchParams }: PageProps<"/p
       )}
 
       <section className="card p-6">
-        <h2 className="font-display text-2xl font-semibold">Wetten auflösen</h2>
+        <h2 className="font-display text-2xl font-semibold">Fragen auflösen</h2>
         <p className="mt-1 text-sm text-ink-soft">
           Ist das Baby da? Tragt hier die Ergebnisse ein. Mit „Tippen pausieren“ könnt ihr eine
-          Wette vorher schließen, zum Beispiel sobald die Wehen losgehen.
+          Frage vorher schließen, zum Beispiel sobald die Wehen losgehen.
         </p>
         <div className="mt-5 space-y-3">
           {markets.map((m) => (
@@ -82,7 +82,7 @@ export default async function ManagePage({ params, searchParams }: PageProps<"/p
       </section>
 
       <section className="card p-6">
-        <h2 className="font-display text-2xl font-semibold">Wette hinzufügen</h2>
+        <h2 className="font-display text-2xl font-semibold">Frage hinzufügen</h2>
         <div className="mt-4">
           <AddMarketForm
             slug={slug}
@@ -103,7 +103,7 @@ export default async function ManagePage({ params, searchParams }: PageProps<"/p
       <section className="card p-6">
         <h2 className="font-display text-2xl font-semibold">🔑 Gastgeber-Link</h2>
         <p className="mt-1 text-sm text-ink-soft">
-          Wer diesen Link hat, kann die Babywette verwalten. Nur an die Eltern weitergeben.
+          Wer diesen Link hat, kann die Tipprunde verwalten. Nur an die Eltern weitergeben.
         </p>
         <div className="mt-4">
           <CopyField label="Gastgeber-Link" value={`${siteUrl()}/p/${slug}?key=${pool.adminKey}`} />

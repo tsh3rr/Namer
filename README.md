@@ -1,7 +1,7 @@
-# Namer – die Babywette für Freunde & Familie
+# Namer – das Baby-Tippspiel für Freunde & Familie
 
 Freunde und Familie tippen mit **Spielpunkten** auf Geschlecht, Vorname, Geburtstermin,
-Gewicht und Größe eines Babys. Die Quoten bewegen sich wie bei Polymarket mit jedem Tipp.
+Gewicht und Größe eines Babys. Die Prognosen bewegen sich mit jedem Tipp, ähnlich wie bei einem Prognosemarkt.
 Kein Echtgeld, keine Anmeldung: Link öffnen, Namen eintippen, mitmachen.
 
 ## Funktionen
@@ -14,12 +14,12 @@ Kein Echtgeld, keine Anmeldung: Link öffnen, Namen eintippen, mitmachen.
   bis zur Auflösung. Beim Namen dürfen alle Vorschläge ergänzen, plus „Ein anderer Name“.
 - **Fairness**: Eltern sind Gastgeber und tippen nicht mit.
 - **Viralität**: Einladungslink mit +100 Punkten pro neuer Person, WhatsApp/Teilen-Buttons,
-  dynamische Vorschaubilder (`opengraph-image`) mit Live-Quoten bzw. dem Ergebnis.
+  dynamische Vorschaubilder (`opengraph-image`) mit Live-Prognosen bzw. dem Ergebnis.
 - **Monetarisierung**:
-  - *Namer Plus* (einmalig 9,99 € pro Babywette, Stripe Checkout): eigene Wetten,
+  - *Namer Plus* (einmalig 9,99 € pro Tipprunde, Stripe Checkout): eigene Fragen,
     Live-Modus für die Babyparty, Farbwelten, keine Werbung.
   - Geschenkideen mit Amazon-Partnerlinks.
-  - Eine dezente Werbefläche (AdSense) auf kostenlosen Babywetten; ohne AdSense eine
+  - Eine dezente Werbefläche (AdSense) auf kostenlosen Tipprunden; ohne AdSense eine
     Hausanzeige für Plus.
 
 ## Stack

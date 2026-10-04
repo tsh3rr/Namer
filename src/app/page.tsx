@@ -8,7 +8,7 @@ import { BRAND } from "@/lib/brand";
 const steps = [
   {
     n: "1",
-    title: "Babywette anlegen",
+    title: "Tipprunde anlegen",
     text: "In 30 Sekunden: Spitzname fürs Baby, Termin, fertig. Ob Eltern oder beste Freundin.",
   },
   {
@@ -19,7 +19,7 @@ const steps = [
   {
     n: "3",
     title: "Tippen, zittern, jubeln",
-    text: "Die Quoten bewegen sich mit jedem Tipp. Wenn das Baby da ist, gewinnt, wer richtig lag.",
+    text: "Die Prognose bewegt sich mit jedem Tipp. Wenn das Baby da ist, gewinnt, wer richtig lag.",
   },
 ];
 
@@ -84,7 +84,7 @@ export default function Home() {
       <header className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-5">
         <Logo />
         <Link href="/neu" className="btn-primary px-4 py-2 text-sm">
-          Wette starten
+          Tipprunde starten
         </Link>
       </header>
 
@@ -93,20 +93,20 @@ export default function Home() {
           <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 pt-8 pb-20 md:grid-cols-2 md:pt-16">
             <div>
               <span className="chip bg-blush-100 text-blush-600">
-                Die Babywette für Freunde &amp; Familie
+                Das Baby-Tippspiel für Freunde &amp; Familie
               </span>
               <h1 className="mt-5 font-display text-5xl leading-[1.05] font-semibold tracking-tight text-balance md:text-6xl">
                 Junge oder Mädchen? Ella oder Mila?{" "}
                 <span className="text-blush-600">Tippt drauf.</span>
               </h1>
               <p className="mt-5 max-w-md text-lg text-ink-soft">
-                {BRAND.name} ist wie eine kleine Börse fürs Baby: Freunde und Familie
+                {BRAND.name} ist das Tippspiel fürs Baby: Freunde und Familie
                 tippen mit Spielpunkten auf Geschlecht, Namen, Geburtstag,
-                Gewicht und Größe. Die Quoten zeigen live, was alle glauben.
+                Gewicht und Größe. Die Prognose zeigt live, was alle glauben.
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-3">
                 <Link href="/neu" className="btn-primary text-lg">
-                  Kostenlos Babywette anlegen
+                  Kostenlos Tipprunde anlegen
                 </Link>
                 <Link href="/so-gehts" className="btn-ghost">
                   So funktioniert&apos;s
@@ -122,7 +122,7 @@ export default function Home() {
 
         <section className="mx-auto max-w-6xl px-4 py-20">
           <h2 className="text-center font-display text-3xl font-semibold md:text-4xl">
-            In drei Schritten zur Babywette
+            In drei Schritten zur Tipprunde
           </h2>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             {steps.map((s) => (
@@ -169,7 +169,7 @@ export default function Home() {
               <ul className="mt-5 space-y-2 text-sm">
                 <li>✓ Geschlecht, Name, Termin, Gewicht, Größe</li>
                 <li>✓ Unbegrenzt viele Mitspieler</li>
-                <li>✓ Live-Quoten, Rangliste, Einladungsbonus</li>
+                <li>✓ Live-Prognosen, Rangliste, Einladungsbonus</li>
                 <li>✓ Teilen per WhatsApp &amp; Co.</li>
               </ul>
             </div>
@@ -179,10 +179,10 @@ export default function Home() {
               </span>
               <p className="font-display text-2xl font-semibold">{BRAND.plusName}</p>
               <p className="mt-1 text-ink-soft">
-                Einmalig {PLUS_PRICE_LABEL} pro Babywette
+                Einmalig {PLUS_PRICE_LABEL} pro Tipprunde
               </p>
               <ul className="mt-5 space-y-2 text-sm">
-                <li>✓ Eigene Wetten mit beliebigen Fragen</li>
+                <li>✓ Eigene Fragen, ganz nach eurem Geschmack</li>
                 <li>✓ Live-Modus für Babyparty &amp; Gender Reveal</li>
                 <li>✓ Farbwelten: Rosé, Himmelblau, Salbei, Sonnengelb</li>
                 <li>✓ Keine Werbung für alle Gäste</li>
@@ -201,7 +201,7 @@ export default function Home() {
               href="/neu"
               className="btn mt-8 bg-white text-lg text-ink hover:bg-cream"
             >
-              Jetzt Babywette anlegen
+              Jetzt Tipprunde anlegen
             </Link>
           </div>
         </section>

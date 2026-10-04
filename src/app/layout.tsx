@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     template: `%s · ${BRAND.name}`,
   },
   description:
-    "Junge oder Mädchen? Welcher Name? Wie schwer? Tippt mit Spielpunkten auf alles rund ums Baby – mit Live-Quoten wie an der Börse.",
+    "Junge oder Mädchen? Welcher Name? Wie schwer? Tippt mit Spielpunkten auf alles rund ums Baby – mit Live-Prognose der ganzen Familie.",
   openGraph: { siteName: BRAND.name, locale: LOCALE.replace("-", "_"), type: "website" },
 };
 

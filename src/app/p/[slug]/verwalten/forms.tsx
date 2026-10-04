@@ -67,7 +67,7 @@ export function SettingsForm({
           <input id="dueDate" name="dueDate" type="date" className="input" defaultValue={pool.dueDate ?? ""} />
         </div>
         <div>
-          <label className="label" htmlFor="stakes">Einsatz</label>
+          <label className="label" htmlFor="stakes">Spaßpreis</label>
           <input id="stakes" name="stakes" className="input" defaultValue={pool.stakes ?? ""} maxLength={140} />
         </div>
       </div>
@@ -221,7 +221,7 @@ export function AddMarketForm({
           className="btn-ghost text-sm"
           onClick={() => setCustom(!custom)}
         >
-          ✨ Eigene Wette {!premium && <span className="chip bg-sun-100 text-sun-600">Plus</span>}
+          ✨ Eigene Frage {!premium && <span className="chip bg-sun-100 text-sun-600">Plus</span>}
         </button>
       </div>
       {custom && (
@@ -237,7 +237,7 @@ export function AddMarketForm({
             <textarea id="options" name="options" className="input min-h-28" placeholder={"Ja, ganz viele\nEin bisschen Flaum\nGlatze"} required />
           </div>
           <button className="btn-primary" disabled={pending || !premium}>
-            {premium ? "Wette erstellen" : "Nur mit Plus verfügbar"}
+            {premium ? "Frage erstellen" : "Nur mit Plus verfügbar"}
           </button>
         </form>
       )}

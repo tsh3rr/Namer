@@ -40,8 +40,8 @@ export function JoinCard({
           </li>
           <li className="rounded-2xl bg-cream/70 p-3">
             <span className="text-lg">📈</span>
-            <p className="mt-1 font-bold">Tippen wie an der Börse</p>
-            <p className="text-ink-soft">Je unbeliebter ein Tipp, desto mehr gibt es.</p>
+            <p className="mt-1 font-bold">Live-Prognose der Gruppe</p>
+            <p className="text-ink-soft">Wer gegen den Trend richtig liegt, sammelt mehr Punkte.</p>
           </li>
           <li className="rounded-2xl bg-cream/70 p-3">
             <span className="text-lg">🏆</span>

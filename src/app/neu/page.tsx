@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Logo } from "@/components/logo";
 import { CreateWizard } from "./wizard";
 
-export const metadata: Metadata = { title: "Neue Babywette" };
+export const metadata: Metadata = { title: "Neue Tipprunde" };
 
 export default function NewPoolPage() {
   return (

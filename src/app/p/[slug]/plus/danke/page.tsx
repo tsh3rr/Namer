@@ -22,7 +22,7 @@ export default async function ThanksPage({ params, searchParams }: PageProps<"/p
       </h1>
       <p className="mt-2 text-ink-soft">
         {pool.premium
-          ? "Danke! Eigene Wetten, Farbwelten und der Live-Modus sind jetzt freigeschaltet."
+          ? "Danke! Eigene Fragen, Farbwelten und der Live-Modus sind jetzt freigeschaltet."
           : "Das dauert meist nur ein paar Sekunden. Lade die Seite gleich neu."}
       </p>
       <div className="mt-6 flex justify-center gap-2">

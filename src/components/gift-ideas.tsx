@@ -5,7 +5,7 @@ export function GiftIdeas({ seed }: { seed: string }) {
     <section className="card p-5">
       <h2 className="font-display text-xl font-semibold">Geschenkideen</h2>
       <p className="mt-1 text-sm text-ink-soft">
-        Für den Einsatz, die Babyparty oder einfach so.
+        Für den Spaßpreis, die Babyparty oder einfach so.
       </p>
       <ul className="mt-4 space-y-2">
         {giftIdeas(3, seed).map((g) => (
